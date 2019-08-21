@@ -19,7 +19,8 @@ const getPostById = async (req, res) => {
 const createPost = async (req, res) => {
     const post = new Posts({
         title: req.body.title,
-        content: req.body.content
+        content: req.body.content,
+        postImage: req.file.path
     });
     try{
         res.json(await post.save());

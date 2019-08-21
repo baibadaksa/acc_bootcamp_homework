@@ -5,6 +5,7 @@ const mongo = require ("connect-mongo");
 const mongoose = require("mongoose");
 require("dotenv/config");
 const app = express();
+// app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
@@ -24,6 +25,7 @@ app.use("/posts", postsRoute);
 // app.use("/user", userRoute);
 app.use("/categories", categoriesRoute);
 app.use("/comments", commentsRoute);
+
 
 
 
