@@ -24,5 +24,3 @@ router.post("/", upload.single("postImage"), createPost);
 router.delete("/:postId", deletePost);
 
 module.exports = router;
-
-

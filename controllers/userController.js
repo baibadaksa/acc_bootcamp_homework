@@ -23,13 +23,13 @@ const createUser = async (req, res) => {
         email: req.body.email,
         hashedPassword: hashedPassword
     });
-    
+
     try{
         res.send(await user.save());
     }catch(err){
         errorMessage(err, res);
     }
-    
+
 };
 
 const loginUser = async (req, res) => {
@@ -40,14 +40,25 @@ const loginUser = async (req, res) => {
     if(!user) return errorMessage("Email or password is wrong!", res);
     const validPass = await bcrypt.compare(req.body.password, user.hashedPassword);
     if(!validPass) return errorMessage("Invalid password!", res);
-
     const token = jwt.sign({ _id: user._id }, process.env.SESSION_SECRET);
-    res.header("auth-token", token).send(token);
+    try{
+        res.status(200).header("auth-token", token).json({user, token});
+    }catch(err){
+        errorMessage(err, res);
+    }
 
-    res.send("You are in!");
 
+}
+
+const getUserById = async (req, res) =>{
+  try{
+      res.json(await User.findById(req.params.userId));
+  }catch(err){
+      res.json({message: err});
+  }
 }
 
 
 module.exports.createUser = createUser;
 module.exports.loginUser = loginUser;
+module.exports.getUserById = getUserById;

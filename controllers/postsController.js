@@ -17,13 +17,18 @@ const getPostById = async (req, res) => {
 };
 
 const createPost = async (req, res) => {
+    console.log(req.body.title);
     const post = new Posts({
         title: req.body.title,
         content: req.body.content,
-        postImage: req.file.path
+        postImage: req.file.path,
+        category: req.body.category,
+        userId: req.body.userId
+
     });
     try{
         res.json(await post.save());
+        res.send(payload);
     }catch(err){
         res.json({message: err});
     }

@@ -3,11 +3,13 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const mongo = require ("connect-mongo");
 const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv/config");
 const app = express();
 // app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
+app.use(cors());
 
 //-------------Routes---------------------------------------------------
 const homeRoute = require("./routes/home");
@@ -22,7 +24,7 @@ app.use("/", homeRoute);
 app.use("/register", authRoute);
 app.use("/login", loginRoute);
 app.use("/posts", postsRoute);
-// app.use("/user", userRoute);
+app.use("/user", userRoute);
 app.use("/categories", categoriesRoute);
 app.use("/comments", commentsRoute);
 
@@ -49,6 +51,6 @@ app.use(
       );
 //---------------------------------------- should move to separate file
 
-app.listen(3000, () => {
-    console.log("Server started on port 3000!");
+app.listen(3001, () => {
+    console.log("Server started on port 3001!");
 });
