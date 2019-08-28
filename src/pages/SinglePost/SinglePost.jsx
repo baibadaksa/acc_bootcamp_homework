@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Comments from "../../components/CommentsComponent";
 // import {Redirect}  from "react-router-dom";
 
 
@@ -10,12 +11,20 @@ class SinglePost extends Component {
 
     render() {
         const { singlePost } = this.props;
-        return (
+        const { postId } = this.props.match.params;
+        const { userId } = this.props.user;        
+         return (
             <div>
-                <h1>{singlePost.title}</h1>
-                <p>{singlePost.content}</p>
-                <br/>
-                <p>{singlePost.createdAt}</p>
+                <div>
+                    <h1>{singlePost.title}</h1>
+                    <p>{singlePost.content}</p>
+                        <br/>
+                    <p>{singlePost.createdAt}</p>
+                    <img src={`http://localhost:3000/${singlePost.postImage}`} alt=""></img>
+                </div>
+                <div>
+                    <Comments postId={postId} userId={userId}/>
+                </div>
             </div>
         )
     }

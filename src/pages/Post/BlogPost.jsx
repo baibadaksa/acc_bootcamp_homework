@@ -26,7 +26,6 @@ class Post extends Component {
     onSubmit = event => {
         event.preventDefault();
        this.props.addPost(this.state, this.props.user.userId);
-       console.log(this.state);
     };
 
     render() {
@@ -48,13 +47,13 @@ class Post extends Component {
                         <div>
                             <label htmlFor="postCategory">Post category:</label>
                             <select onChange={this.onChange} id="postCategory"className="form-group m-2" name="category">
-                                <option value="Business/Finance">Business/Finance</option>
+                                <option value="Business and Finance">Business and Finance</option>
                                 <option value="Sports">Sports</option>
                                 <option value="Food">Food</option>
-                                <option value="Technology/Science">Technology/Science</option>
-                                <option value="ravel">Travel</option>
-                                <option value="Fashion/Lifestyle">Fashion/Lifestyle</option>
-                                <option value="Family/Relationships">Family/Relationships</option>
+                                <option value="Technology and Science">Technology and Science</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Fashion and Lifestyle">Fashion and Lifestyle</option>
+                                <option value="Family and Relationships">Family and Relationships</option>
                                 <option value="Art">Art</option>
                                 <option value="Other">Other</option>
                             </select>

@@ -12,7 +12,7 @@ const addPost = (post, userId) => async dispatch => {
     .post("/posts", data)
     .then(res => {
         if(res && res.status === 200){
-
+            console.log("Post created");
         }
     })
     .catch(err => {

@@ -2,19 +2,24 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 
  class Categories extends Component {
+    state = {
+        categories: ["Business and Finance", "Sports", "Food", "Technology and Science", "Travel", "Fashion and Lifestyle", "Family and Relationships", "Art", "Other"]
+    }
+
+    
+
     render() {
         return (
             <div className="col-3">
                 <nav className="nav flex-column">
-                    <Link to="">Business/Finance</Link>
-                    <Link to="">Sports</Link>
-                    <Link to="">Food</Link>
-                    <Link to="">Technology/Science</Link>
-                    <Link to="">Travel</Link>
-                    <Link to="">Fashion/Lifestyle</Link>
-                    <Link to="">Family/Relationships</Link>
-                    <Link to="">Art</Link>
-                    <Link to="">Other</Link>
+                <ul className='list-unstyled'>
+                    {this.state.categories.map((category, index) => (
+                     <li key={category[index]}>
+                        <Link to={`/read/category/${category}`}>{category}</Link>
+                     </li>
+                    ))}
+                </ul>
+
                 </nav>   
             </div>
         )

@@ -4,22 +4,23 @@ import { Link } from "react-router-dom";
 
 // import {Redirect}  from "react-router-dom";
 
-class AllPosts extends Component {
+class SingleCategory extends Component {
 
     componentDidMount(){
-        this.props.getAllPosts();
+        this.props.getPostsByCategory(this.props.match.params.categoryName);
     }    
-
-
     render() {
-        const { posts } = this.props;
-        
+
+        const posts = this.props.singleCategory;
+        console.log(posts);
+
         return (
             <div className="row">
                 <Categories />
                 <div className="col-9 d-flex justify-content-center align-items-center">
                 <ul className='list-unstyled'>
                     {posts.map(item => (
+                    
                      <li key={item._id}>
                         <Link to={`/read/${item._id}`}>
                              <h1 className='title'>{item.title}</h1> 
@@ -36,4 +37,4 @@ class AllPosts extends Component {
     }
 }
 
-export default AllPosts;
+export default SingleCategory;
