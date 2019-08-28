@@ -1,8 +1,10 @@
 const Comments = require("../models/CommentsModel");
+const User = require("../models/UserModel");
 
-const getCommentById = async (req, res) => {
+const getCommentsByPostId = async (req, res) => {
     try{
-        res.json(await Comments.findById(req.params.commentId));
+        const comments = await Comments.find({"postId": req.params.postId});
+        res.json(comments);
     }catch(err){
         res.json({message: err});
     }
@@ -10,7 +12,9 @@ const getCommentById = async (req, res) => {
 
 const createComment = async (req, res) => {
     const comment = new Comments({
-        text: req.body.text
+        text: req.body.text,
+        userId: req.body.userId,
+        postId: req.body.postId
     });
 
     try{
@@ -29,6 +33,6 @@ const deleteComment = async (req, res) => {
 };
 
 
-    module.exports.getCommentById = getCommentById;
+    module.exports.getCommentsByPostId = getCommentsByPostId;
     module.exports.createComment = createComment;
     module.exports.deleteComment = deleteComment;

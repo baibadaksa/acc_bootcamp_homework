@@ -16,10 +16,11 @@ const fileFilter = (req, file, cb) => {
     }
 }
 const upload = multer({storage: storage, fileFilter: fileFilter});
-const {getAllPosts, getPostById, createPost, deletePost} = require("../controllers/postsController");
+const {getAllPosts, getPostById, getPostByCategory, createPost, deletePost} = require("../controllers/postsController");
 
 router.get("/", getAllPosts);
 router.get("/:postId", getPostById);
+router.get("/category/:categoryName", getPostByCategory);
 router.post("/", upload.single("postImage"), createPost);
 router.delete("/:postId", deletePost);
 

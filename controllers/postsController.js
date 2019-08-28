@@ -16,6 +16,14 @@ const getPostById = async (req, res) => {
     }
 };
 
+const getPostByCategory = async (req, res) => {
+    try{
+        res.json(await Posts.find({"category": req.params.categoryName}));
+    }catch(err){
+        res.json({message: err});
+    }
+};
+
 const createPost = async (req, res) => {
     console.log(req.body.title);
     const post = new Posts({
@@ -44,5 +52,6 @@ const deletePost = async (req, res) => {
 
     module.exports.getAllPosts = getAllPosts;
     module.exports.getPostById = getPostById;
+    module.exports.getPostByCategory=getPostByCategory;
     module.exports.createPost = createPost;
     module.exports.deletePost = deletePost;

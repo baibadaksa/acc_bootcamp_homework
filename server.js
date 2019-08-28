@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv/config");
 const app = express();
-// app.use("/uploads", express.static("uploads"));
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(cors());
