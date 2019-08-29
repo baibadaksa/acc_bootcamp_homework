@@ -30,10 +30,11 @@ class Post extends Component {
 
     render() {
         
-        const { user } = this.props;
-        if (!user.token) {
-             return <Redirect to='/login' />;
-        }
+        const { isCreated } = this.props;
+
+        if(isCreated._id) {
+            return <Redirect to={`/read/${isCreated._id}`}/>;
+        };
         
 
         return (

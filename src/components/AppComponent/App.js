@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PrivateRoute from "../PrivateRoute";
 
 //-------------Containers----------------------
 import Navbar from "../Navbar";
@@ -22,9 +23,10 @@ function App({user, logout}){
         <Route exact path='/read' component={AllPosts} />
         <Route exact path='/read/:postId' component={SinglePost} /> 
         <Route exact path='/read/category/:categoryName' component={SingleCategory}/>
-        <Route path='/create' component={Post} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Registration} />
+
+        <PrivateRoute path='/create' component={Post} />
       </Switch>
     </Router>
   </Fragment>

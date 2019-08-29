@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Categories from "../../components/Categories";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
+import "moment-timezone";
 
 // import {Redirect}  from "react-router-dom";
 
@@ -17,15 +19,24 @@ class AllPosts extends Component {
         return (
             <div className="row">
                 <Categories />
-                <div className="col-9 d-flex justify-content-center align-items-center">
+                <div className="col-9 mt-2 d-flex justify-content-center align-items-center">
                 <ul className='list-unstyled'>
                     {posts.map(item => (
-                     <li key={item._id}>
+                     <li className="mt-4 pb-4" key={item._id}>
                         <Link to={`/read/${item._id}`}>
-                             <h1 className='title'>{item.title}</h1> 
-                             <p className='content'>{item.content}</p>
-                             <h6 className='date'>{item.createdAt}</h6>
-                            <img src={`http://localhost:3000/${item.postImage}`} alt='' className='w-25' />
+                            <div className="posts">
+                            <div>
+                                <img src={`http://localhost:3000/${item.postImage}`} alt='' className='round-img' />
+                            </div>
+                            <div className="pl-5"> 
+                                <h1 className='title'>{item.title}</h1> 
+                                <p className='content'>{item.content}</p>
+                                <p className='time'><Moment>{item.createdAt}</Moment></p>
+                            </div>
+                            </div>
+
+
+                            
                         </Link>
                      </li>
                     ))}

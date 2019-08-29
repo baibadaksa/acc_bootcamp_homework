@@ -5,7 +5,7 @@ import addPost from "./postAction";
 const stateToProps = state => {
   return {
     user: state.user,
-    isCreated: state.addPost //---make "Redirect" to read page
+    isCreated: state.addPost 
   };
 };
 

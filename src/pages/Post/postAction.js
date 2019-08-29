@@ -10,9 +10,13 @@ const addPost = (post, userId) => async dispatch => {
 
     axios
     .post("/posts", data)
-    .then(res => {
-        if(res && res.status === 200){
+    .then(response => {
+        if(response && response.status === 200){
             console.log("Post created");
+            dispatch({
+                type: "ADD_POST",
+                payload: response.data
+            })
         }
     })
     .catch(err => {

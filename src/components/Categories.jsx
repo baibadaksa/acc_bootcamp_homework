@@ -12,10 +12,10 @@ import {Link} from "react-router-dom";
         return (
             <div className="col-3">
                 <nav className="nav flex-column">
-                <ul className='list-unstyled'>
+                <ul className='list-unstyled sidebar'>
                     {this.state.categories.map((category, index) => (
-                     <li key={category[index]}>
-                        <Link to={`/read/category/${category}`}>{category}</Link>
+                     <li className="sidebar-links" key={category[index]}>
+                        <Link  to={`/read/category/${category}`}>{category}</Link>
                      </li>
                     ))}
                 </ul>

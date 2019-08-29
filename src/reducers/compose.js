@@ -1,5 +1,5 @@
-const addPost = (state = {}, action) => {
-    if (action.type === "CREATE_POST_SUCCESS") {
+const addPost = (state = false, action) => {
+    if (action.type === "ADD_POST") {
       return action.payload;
     }
     return state;

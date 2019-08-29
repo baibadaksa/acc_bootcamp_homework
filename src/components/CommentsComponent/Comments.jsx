@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import Moment from "react-moment";
+import "moment-timezone";
 
  class Comments extends Component {
      state = {
@@ -30,10 +32,10 @@ import React, { Component, Fragment } from 'react';
                 <div>
                 <ul className='list-unstyled'>
                     {comments.map(comment => (
-                     <li key={comment._id}>
+                     <li className="comment-box" key={comment._id}>
                          <Fragment>
-                         <h6>{comment.text}</h6>
-                         <p>{comment.createdAt}</p>
+                         <p>{comment.text}</p>
+                         <p className="time text-right"><Moment format="DD/MM/YYYY">{comment.createdAt}</Moment></p>
                          </Fragment>
                     </li>
                     ))}
@@ -42,12 +44,12 @@ import React, { Component, Fragment } from 'react';
                 </div>
                 <form onSubmit={this.onSubmit}>
                     <div>
-                        <label htmlFor="comment">Have something to say about this post?</label>
+                        <p>Have something to say?</p>
                     </div>
                     <div>
-                        <textarea onChange={this.onChange} name="text" id="comment" cols="50" rows="5"></textarea>
+                        <textarea className="form-control" onChange={this.onChange} name="text" id="comment" cols="50" rows="5"></textarea>
                     </div>
-                    <button type="submit">Add comment</button>
+                    <button className="btn btn-outline-dark mt-3" type="submit">Add comment</button>
                 </form>
             </div>
         )
