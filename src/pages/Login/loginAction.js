@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { success, error } from "react-notification-system-redux";
 
 const loginUser = user => dispatch => {
   axios

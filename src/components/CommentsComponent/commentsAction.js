@@ -14,15 +14,14 @@ const getComments = postId => dispatch => {
   };
 
   const addComment = (text, userId, postId) => dispatch =>{
-    console.log(text);
     axios
     .post("/comments", {text, userId, postId})
     .then(response => {
       if(response && response.status === 200){
               dispatch({
-                type: "CREATE_COMMENT"
+                type: "CREATE_COMMENT",
+                payload: response.data
               });
-              console.log("Comment has been created");
       }
     })
     .catch(err => {

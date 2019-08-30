@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import Comments from "../../components/CommentsComponent";
 import Moment from "react-moment";
 import "moment-timezone";
+import parse from "html-react-parser";
 import nl2br from "nl2br";
-// import {Redirect}  from "react-router-dom";
-
-
 
 class SinglePost extends Component {
     componentDidMount(){
@@ -14,7 +12,6 @@ class SinglePost extends Component {
 
     render() {
         const { singlePost } = this.props;
-        console.log(this.props.singlePost);
         const content = nl2br(singlePost.content);
         const { postId } = this.props.match.params;
         const { userId } = this.props.user;        
@@ -24,7 +21,7 @@ class SinglePost extends Component {
                     
                     <img className="post-img" src={`http://localhost:3000/${singlePost.postImage}`} alt=""></img>
                     <h1 className="text-center mt-3">{singlePost.title}</h1>
-                    <p>{singlePost.content}</p>
+                    <p>{parse(content)}</p>
                         <br/>
                     <p className="text-right time"><Moment>{singlePost.createdAt}</Moment></p>
                     

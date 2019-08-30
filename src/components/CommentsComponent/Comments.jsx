@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Moment from "react-moment";
 import "moment-timezone";
+import parse from "html-react-parser";
+import nl2br from "nl2br";
 
  class Comments extends Component {
      state = {
@@ -8,7 +10,7 @@ import "moment-timezone";
      }
 
     componentDidMount(){
-        this.props.getComments(this.props.postId);
+        this.props.getComments(this.props.postId, this.props.user.userId);
     }
 
     onChange = event => {
@@ -34,7 +36,7 @@ import "moment-timezone";
                     {comments.map(comment => (
                      <li className="comment-box" key={comment._id}>
                          <Fragment>
-                         <p>{comment.text}</p>
+                         <p>{parse(nl2br(comment.text))}</p>
                          <p className="time text-right"><Moment format="DD/MM/YYYY">{comment.createdAt}</Moment></p>
                          </Fragment>
                     </li>

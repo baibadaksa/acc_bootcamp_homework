@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import "moment-timezone";
 
-// import {Redirect}  from "react-router-dom";
-
 class SingleCategory extends Component {
 
     componentDidMount(){
@@ -14,7 +12,6 @@ class SingleCategory extends Component {
     render() {
 
         const posts = this.props.singleCategory;
-        console.log(posts);
 
         return (
             <div className="row">
@@ -29,8 +26,8 @@ class SingleCategory extends Component {
                                     <img src={`http://localhost:3000/${item.postImage}`} alt='' className='round-img ml-4' />
                                 </div>
                                 <div className="pl-5"> 
-                                    <h1 className='title'>{item.title}</h1> 
-                                    <p className='content'>{item.content.slice(0, 350)}<span> ...</span></p>
+                                    <h1>{item.title}</h1> 
+                                    <p>{item.content.slice(0, 350)}<span> ...</span></p>
                                     <p className='time'><Moment>{item.createdAt}</Moment></p>
                                 </div>
                             </div>

@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import "moment-timezone";
 
-// import {Redirect}  from "react-router-dom";
-
 class AllPosts extends Component {
 
     componentDidMount(){
@@ -29,14 +27,11 @@ class AllPosts extends Component {
                                 <img src={`http://localhost:3000/${item.postImage}`} alt='' className='round-img' />
                             </div>
                             <div className="pl-5"> 
-                                <h1 className='title'>{item.title}</h1> 
-                                <p className='content'>{item.content.slice(0, 350)}<span> ...</span></p>
-                                <p className='time'><Moment>{item.createdAt}</Moment></p>
+                                <h1>{item.title}</h1> 
+                                <p>{item.content.slice(0, 350)}<span> ...</span></p>
+                                <p className="time"><Moment>{item.createdAt}</Moment></p>
                             </div>
                             </div>
-
-
-                            
                         </Link>
                      </li>
                     ))}
