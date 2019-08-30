@@ -38,16 +38,16 @@ class Post extends Component {
         
 
         return (
-            <div className="col-6">
+            <div className="form-page d-flex justify-content-center">
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <div>
                             <label htmlFor="postTitle">Title:</label>
-                            <input id="postTitle" onChange={this.onChange} className="form-control" type="text" name="title" ></input>
+                            <input id="postTitle" onChange={this.onChange} className="form-control mb-3" type="text" name="title" ></input>
                         </div>
                         <div>
                             <label htmlFor="postCategory">Post category:</label>
-                            <select onChange={this.onChange} id="postCategory"className="form-group m-2" name="category">
+                            <select onChange={this.onChange} id="postCategory"className="form-control mb-3" name="category">
                                 <option value="Business and Finance">Business and Finance</option>
                                 <option value="Sports">Sports</option>
                                 <option value="Food">Food</option>
@@ -61,11 +61,11 @@ class Post extends Component {
                         </div>
                         <div>
                             <label htmlFor="postText">Text:</label>
-                            <textarea id="postText" onChange={this.onChange} className="form-control" rows="4" cols="50" name="content"></textarea>
+                            <textarea id="postText" onChange={this.onChange} className="form-control mb-3" rows="4" cols="50" name="content"></textarea>
                         </div>
                         <div>
                             <label htmlFor="postImage">Image:</label>
-                            <input type="file" id="postImage" onChange={this.fileOnChange} className="" rows="4" cols="50" name="postImage"></input>
+                            <input type="file" id="postImage" onChange={this.fileOnChange} className="form-control-file" rows="4" cols="50" name="postImage"></input>
                         </div>
                     </div>
                     <button className="btn btn-outline-dark" type="submit">Create post</button>

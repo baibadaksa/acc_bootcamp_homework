@@ -14,18 +14,6 @@ code {
     monospace;
 }
 
-form {
-  margin-top: 50px;
-}
-
-input{
-  margin: 10px;
-}
-
-button {
-  margin: 10px;
-}
-
 h1{
   font-family: 'Abril Fatface', cursive;
 }
@@ -136,4 +124,19 @@ a:hover{
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
+}
+
+/* forms */
+.form-page{
+  font-family: 'Raleway', sans-serif;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  background-color: #FFF6F0;
+  width: 100%;
+  min-height: 500px;
+}
+
+.fields{
+  width: 400px;
+  height: 48px;
 }

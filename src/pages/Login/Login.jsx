@@ -33,17 +33,17 @@ class Login extends Component {
         
 
         return (
-            <div className="col-6">
+            <div className="form-page justify-content-center d-flex">
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <div>
-                            <input onChange={this.onChange} className="form-control" type="email" name="email" placeholder="E-mail"></input>
+                            <input onChange={this.onChange} className="fields form-control mt-5 mb-3" type="email" name="email" placeholder="E-mail"></input>
                         </div>
                         <div>
-                        <input onChange={this.onChange} className="form-control" type="password" name="password" placeholder="Password"></input>
+                        <input onChange={this.onChange} className="fields form-control mb-3" type="password" name="password" placeholder="Password"></input>
                         </div>
                     </div>
-                    <button className="btn btn-outline-dark" type="submit">Sign me in!</button>
+                    <button className="btn btn-lg btn-outline-dark" type="submit">Sign me in!</button>
                 </form>
             </div>
         )

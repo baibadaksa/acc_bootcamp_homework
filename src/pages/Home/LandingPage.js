@@ -12,8 +12,8 @@ class Home extends Component {
             <div className="home">
                 <h1>Place for your thoughts</h1>
                 <div>
-                    <Link to="/read"><button className="btn btn-lg btn-outline-light">Read</button></Link>
-                    <Link to="/create"><button className="btn btn-lg btn-outline-light">Write</button></Link>
+                    <Link to="/read"><button className="btn btn-lg btn-outline-light m-2">Read</button></Link>
+                    <Link to="/create"><button className="btn btn-lg btn-outline-light m-2">Write</button></Link>
                 </div>
             </div>
         )

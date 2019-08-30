@@ -30,7 +30,7 @@ class AllPosts extends Component {
                             </div>
                             <div className="pl-5"> 
                                 <h1 className='title'>{item.title}</h1> 
-                                <p className='content'>{item.content}</p>
+                                <p className='content'>{item.content.slice(0, 350)}<span> ...</span></p>
                                 <p className='time'><Moment>{item.createdAt}</Moment></p>
                             </div>
                             </div>
