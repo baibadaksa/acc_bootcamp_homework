@@ -8,7 +8,8 @@ Unsolved issues so far:
 -can not create blog post longer than 1024 characters (can not store it in the database);
 -havent got author(user) for comments and posts;
 -have to reload page to see newly added comment;
--categories link works only once from the "Read" page (have to reload link).
+-categories link works only once from the "Read" page (have to reload link);
+-haven't implemented error notifications appearing in the UI. To see request errors (login, register, post, comment, etc.. ), have to look in the console or Network->Response.
 
 Have saved back end to the 'master' and UI to the 'front-end' branch.
 
