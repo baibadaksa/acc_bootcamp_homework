@@ -1,10 +1,10 @@
 const express = require("express") ;
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const mongo = require ("connect-mongo");
-const mongoose = require("mongoose");
+const connectOptions = require("./utils/connectDatabase.js");
 const cors = require("cors");
 require("dotenv/config");
+
 const app = express();
 app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.json());
@@ -26,29 +26,8 @@ app.use("/posts", postsRoute);
 app.use("/user", userRoute);
 app.use("/comments", commentsRoute);
 
+app.use(session(connectOptions));
 
-
-
-
-//-----------Connection to database------------------------------------
-const MongoStore = mongo(session);
-mongoose.connect(
-    process.env.DB_CONNECTION,
-    {useNewUrlParser: true},
-     console.log("db started"));
-app.use(
-    session({
-          resave: true,
-          saveUninitialized: true,
-          secret: process.env.SESSION_SECRET,
-          store: new MongoStore({
-            url: process.env.DB_CONNECTION,
-            autoReconnect: true,
-          }),
-        }),
-      );
-//---------------------------------------- should move to separate file
-
-app.listen(3001, () => {
-    console.log("Server started on port 3001!");
+app.listen(process.env.PORT, () => {
+    console.log("Server started on port "+ process.env.PORT);
 });

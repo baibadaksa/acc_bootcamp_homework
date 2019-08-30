@@ -1,10 +1,8 @@
 const Comments = require("../models/CommentsModel");
-const User = require("../models/UserModel");
 
 const getCommentsByPostId = async (req, res) => {
     try{
-        const comments = await Comments.find({"postId": req.params.postId});
-        res.json(comments);
+        res.json(await Comments.find({"postId": req.params.postId}));
     }catch(err){
         res.json({message: err});
     }

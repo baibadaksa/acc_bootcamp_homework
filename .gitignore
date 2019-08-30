@@ -3,4 +3,4 @@ DS_STORE
 .git
 .vscode
 node_modules
-uploads
+uploads/*
