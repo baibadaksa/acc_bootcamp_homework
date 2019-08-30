@@ -17,7 +17,6 @@ const authRoute = require("./routes/auth")
 const loginRoute = require("./routes/login")
 const postsRoute = require("./routes/posts");
 const userRoute = require("./routes/user");
-const categoriesRoute = require("./routes/categories");
 const commentsRoute = require("./routes/comments");
 
 app.use("/", homeRoute);
@@ -25,7 +24,6 @@ app.use("/register", authRoute);
 app.use("/login", loginRoute);
 app.use("/posts", postsRoute);
 app.use("/user", userRoute);
-app.use("/categories", categoriesRoute);
 app.use("/comments", commentsRoute);
 
 

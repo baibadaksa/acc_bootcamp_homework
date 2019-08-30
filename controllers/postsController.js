@@ -25,7 +25,6 @@ const getPostByCategory = async (req, res) => {
 };
 
 const createPost = async (req, res) => {
-    console.log(req.body.title);
     const post = new Posts({
         title: req.body.title,
         content: req.body.content,
